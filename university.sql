@@ -1,3 +1,5 @@
+--! Track 1
+
 --# 1. Selezionare tutti gli studenti nati nel 1990 (160)
 SELECT * 
 from `students` 
@@ -13,7 +15,7 @@ SELECT *
 FROM `students`
 WHERE YEAR(`date_of_birth`) <= 1991;
 
---# 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea
+--# 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
 
 --# 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020
 SELECT * 
@@ -32,4 +34,19 @@ FROM `departments`;
 --# 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 SELECT *
 FROM `teachers`
-WHERE `phone` IS NULL
+WHERE `phone` IS NULL;
+
+--! Track 2
+
+--# 1. Contare quanti iscritti ci sono stati ogni anno
+SELECT COUNT(*) AS `Total student`, YEAR(`enrolment_date`) as `date`
+FROM `students`
+GROUP BY `date`;
+
+--# 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+SELECT COUNT(*) AS `Teacher`, `office_address` AS `address`
+FROM `teachers`
+GROUP BY `address`;
+
+--# 3. Calcolare la media dei voti di ogni appello d'esame
+--# 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
